@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Tower
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - Enemy Projectile
+  - Tower Projectile
   - 
   - 
   - 
