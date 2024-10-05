@@ -3,6 +3,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Utilities;
+
 public class TowerMenu : MonoBehaviour {
     
     [SerializeField] private GameObject[] towers;
@@ -15,12 +17,12 @@ public class TowerMenu : MonoBehaviour {
         uiItems = new MenuItem[towers.Length];
         for (int i = 0; i < towers.Length; i++) {
             MenuItem item = new MenuItem(Instantiate(towerUIPrefab, menuGroup.transform), towers[i], i);
-            item.buy.onClick.AddListener(() => Place(Instantiate(item.towerPrefab).GetComponent<TowerBase>()));
+            item.buy.onClick.AddListener(() => StartPlacingTower(item));
             uiItems[i] = item;
         }
     }
 
-    public void FixedUpdate() {
+    public void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Hide();
             return;
@@ -54,7 +56,7 @@ public class TowerMenu : MonoBehaviour {
     }
 
     private void StartPlacingTower(MenuItem item) {
-        Vector3 mousePos = Helpers.I.MainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Helpers.instance.MainCamera.ScreenToWorldPoint(Input.mousePosition);
         GridManager.instance.InitializePlacement(Instantiate(item.towerPrefab, mousePos, Quaternion.identity).GetComponent<TowerBase>());
         Globals.instance.money -= item.towerBase.Cost;
     }
