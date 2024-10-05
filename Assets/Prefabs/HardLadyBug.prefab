@@ -224,8 +224,11 @@ MonoBehaviour:
   tower:
     serializedVersion: 2
     m_Bits: 8
+  End:
+    serializedVersion: 2
+    m_Bits: 512
   projectileSpeed: 2
   projectilePrefab: {fileID: 2959750059900283671, guid: a9a07486e824cde45ab979c331dcc588, type: 3}
   canShoot: 1
   animator: {fileID: 0}
-  MoneyGained: 5
+  moneyGained: 0

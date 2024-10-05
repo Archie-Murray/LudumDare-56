@@ -19,12 +19,18 @@ public class Nanny : MonoBehaviour {
 
     void Spawn(int EnemiesID) {
         GameObject enemyObj = Instantiate(EnemyTypes[EnemiesID], points[0].position, Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (points[1].position - points[0].position).normalized), Vector3.forward));
+        enemyObj.transform.parent = transform;
         enemyObj.GetComponent<Movement>().Locations = points;
     }
     IEnumerator SpawnWave() {
         for (int i = 0; i < wave.Length; i++) {
             Spawn(wave[i]);
             yield return Yielders.WaitForSeconds(spawnDelay);
+        }
+        while(transform.childCount > 0)
+        {
+            yield return Yielders.WaitForSeconds(1);
+                
         }
         OnWaveComplete?.Invoke();
     }
