@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7146623045782472584}
   - component: {fileID: 2556894196754149985}
   - component: {fileID: 6401113768155644742}
+  - component: {fileID: 9018223424848360369}
   m_Layer: 0
   m_Name: HardLadyBug
   m_TagString: Untagged
@@ -121,3 +122,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 40
+--- !u!114 &9018223424848360369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798750533688040898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f210462f1c6f594408835252acb15706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 6401113768155644742}
+  damage: 15
+  range: 5
+  attackTimer:
+    _initialTime: 0
+    _time: 0
+  attackTime: 0
+  tower:
+    serializedVersion: 2
+    m_Bits: 0
+  projectileSpeed: 3
+  projectilePrefab: {fileID: 2959750059900283671, guid: a9a07486e824cde45ab979c331dcc588, type: 3}
+  canShoot: 0
