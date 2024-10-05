@@ -9,7 +9,7 @@ using Utilities;
 
 public class Nanny : MonoBehaviour {
     [SerializeField] GameObject[] EnemyTypes;
-    [SerializeField] int[] Enemies;
+    [SerializeField] int[] wave;
     [SerializeField] Transform[] points;
     [SerializeField] float spawnDelay;
     public bool waveComplete = false;
@@ -30,10 +30,11 @@ public class Nanny : MonoBehaviour {
         enemyObj.GetComponent<Movement>().Locations = points;
     }
     IEnumerator SpawnWave() {
-        for (int i = 0; i < Enemies.Length; i++) {
-            Spawn(i);
-            yield return Yielders.WaitForSeconds(spawnDelay);
-        }
         waveComplete = true;
+        for (int i = 0; i < wave.Length; i++) {
+            Spawn(wave[i]);
+            yield return  Yielders.WaitForSeconds(spawnDelay);
+        }
+        
     }
 }

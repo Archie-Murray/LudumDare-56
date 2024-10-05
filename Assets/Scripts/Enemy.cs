@@ -20,8 +20,8 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected Animator animator;
 
     protected readonly int deathID = Animator.StringToHash("Death");
-    
-    private void Start() {
+
+    protected void Start() {
         // tower = LayerMask.NameToLayer("Tower");
         attackTimer = new CountDownTimer(0f);
         attackTimer.Start();
