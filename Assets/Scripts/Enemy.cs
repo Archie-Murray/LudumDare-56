@@ -30,6 +30,7 @@ public abstract class Enemy : MonoBehaviour {
             canShoot = false;
             animator.Play(deathID);
             Instantiate(Assets.instance.enemyDeathParticles, transform.position, transform.rotation);
+            Destroy(gameObject);
         };
     }
 
