@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 805961130739391098}
   - component: {fileID: 9159621729145496334}
   - component: {fileID: 3576134377473904286}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62505b658137f84fa51fd91d84b7502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 0
   damage: 5
   range: 10
   health: {fileID: 805961130739391098}

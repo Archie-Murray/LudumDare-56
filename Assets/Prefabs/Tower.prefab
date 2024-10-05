@@ -100,7 +100,7 @@ MonoBehaviour:
   damage: 2
   range: 6.67
   health: {fileID: 6176923173580302205}
-  projectilePrefab: {fileID: 2959750059900283671, guid: c2878a1f09ffc684fae67c3a5097ec67, type: 3}
+  projectilePrefab: {fileID: 3105783444695474603, guid: 6f37a26dbee27364dbdabfd96346233f, type: 3}
   attackTimer:
     _initialTime: 0
     _time: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d1f883bd7abc5a84c8e65bdda046ef6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
