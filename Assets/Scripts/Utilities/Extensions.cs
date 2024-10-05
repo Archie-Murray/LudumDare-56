@@ -58,7 +58,7 @@ public static class Extensions {
         CountDownTimer timer = new CountDownTimer(duration);
         timer.Start();
         while (timer.IsRunning) {
-            canvasGroup.alpha = fadeToTransparent ? timer.Progress() : 1f - timer.Progress();
+            canvasGroup.alpha = !fadeToTransparent ? timer.Progress() : 1f - timer.Progress();
             timer.Update(Time.fixedDeltaTime);
             yield return Yielders.WaitForFixedUpdate;
         }

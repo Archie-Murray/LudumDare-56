@@ -30,10 +30,8 @@ public abstract class TowerBase : MonoBehaviour {
     private void FixedUpdate() {
         attackTimer.Update(Time.fixedDeltaTime);
         if (attackTimer.IsFinished && canShoot) {
-            Debug.Log("Checking for close objects");
             Collider2D closest = Physics2D.OverlapCircleAll(transform.position, range, enemy).FirstOrDefault();
             if (!closest) {
-                Debug.Log("No objects found");
                 return;
             }
 
