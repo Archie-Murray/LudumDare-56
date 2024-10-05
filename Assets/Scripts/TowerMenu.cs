@@ -34,7 +34,7 @@ public class TowerMenu : MonoBehaviour {
     }
 
     public void Cancel(TowerBase tower) {
-        Destroy(tower);
+        Destroy(tower.gameObject);
     }
 
     public void Place(TowerBase tower) {
@@ -56,9 +56,11 @@ public class TowerMenu : MonoBehaviour {
     }
 
     private void StartPlacingTower(MenuItem item) {
+        if (Globals.instance.money < item.towerBase.Cost) {
+            return;
+        }
         Vector3 mousePos = Helpers.instance.MainCamera.ScreenToWorldPoint(Input.mousePosition);
         GridManager.instance.InitializePlacement(Instantiate(item.towerPrefab, mousePos, Quaternion.identity).GetComponent<TowerBase>());
-        Globals.instance.money -= item.towerBase.Cost;
     }
 
     [System.Serializable] public class MenuItem {

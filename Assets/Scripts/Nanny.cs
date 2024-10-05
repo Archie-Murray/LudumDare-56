@@ -24,7 +24,7 @@ public class Nanny : MonoBehaviour {
     IEnumerator SpawnWave() {
         for (int i = 0; i < wave.Length; i++) {
             Spawn(wave[i]);
-            yield return  Yielders.WaitForSeconds(spawnDelay);
+            yield return Yielders.WaitForSeconds(spawnDelay);
         }
         OnWaveComplete?.Invoke();
     }
