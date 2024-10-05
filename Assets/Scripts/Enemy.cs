@@ -18,6 +18,7 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected GameObject projectilePrefab;
     [SerializeField] protected bool canShoot = true;
     [SerializeField] protected Animator animator;
+    [SerializeField] protected int moneyGained;
 
     protected readonly int deathID = Animator.StringToHash("Death");
 
@@ -29,6 +30,7 @@ public abstract class Enemy : MonoBehaviour {
         health.onDeath += () => {
             canShoot = false;
             animator.Play(deathID);
+            Globals.instance.money += moneyGained;
             Instantiate(Assets.instance.enemyDeathParticles, transform.position, transform.rotation);
         };
     }

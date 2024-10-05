@@ -4,7 +4,7 @@ public class GridManager : MonoBehaviour {
     [SerializeField] private TowerBase[,] towers;
     [SerializeField] private Vector2Int size;
     [SerializeField] private  TowerMenu towerMenu;
-    private TowerBase heldTower = null;
+    [SerializeField] private TowerBase heldTower = null;
 
     public void Start() {
         towers = new TowerBase[size.y, size.x];
@@ -19,7 +19,7 @@ public class GridManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (heldTower) {
+        if (heldTower != null) {
             heldTower.transform.position = Vector3Int.RoundToInt(Helpers.I.MainCamera.ScreenToWorldPoint(Input.mousePosition));
             if (Input.GetMouseButtonDown(1)) {
                 towers[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = heldTower;
