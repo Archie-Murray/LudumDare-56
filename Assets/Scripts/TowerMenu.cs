@@ -14,7 +14,9 @@ public class TowerMenu : MonoBehaviour {
         menuGroup = GetComponent<CanvasGroup>();
         uiItems = new MenuItem[towers.Length];
         for (int i = 0; i < towers.Length; i++) {
-            uiItems[i] = new MenuItem(Instantiate(towerUIPrefab, menuGroup.transform), towers[i]);
+            MenuItem item = new MenuItem(Instantiate(towerUIPrefab, menuGroup.transform), towers[i], i);
+            item.buy.onClick.AddListener(() => Place(Instantiate(item.towerPrefab).GetComponent<TowerBase>()));
+            uiItems[i] = item;
         }
     }
 
@@ -29,9 +31,12 @@ public class TowerMenu : MonoBehaviour {
         }
     }
 
-    public void Refund(TowerBase tower) {
-        // TODO: Refund money
+    public void Cancel(TowerBase tower) {
         Destroy(tower);
+    }
+
+    public void Place(TowerBase tower) {
+        Globals.instance.money -= tower.Cost;
     }
 
     public void Show() {
@@ -48,17 +53,26 @@ public class TowerMenu : MonoBehaviour {
         menuGroup.FadeCanvas(1f, true, this);
     }
 
-    public class MenuItem {
+    private void StartPlacingTower(MenuItem item) {
+        Vector3 mousePos = Helpers.I.MainCamera.ScreenToWorldPoint(Input.mousePosition);
+        GridManager.instance.InitializePlacement(Instantiate(item.towerPrefab, mousePos, Quaternion.identity).GetComponent<TowerBase>());
+        Globals.instance.money -= item.towerBase.Cost;
+    }
+
+    [System.Serializable] public class MenuItem {
         public Button buy;
         public Image icon;
         public GameObject towerPrefab;
         public TowerBase towerBase;
+        public int index = 0;
 
-        public MenuItem(GameObject uiPrefab, GameObject towerPrefab) {
+        public MenuItem(GameObject uiPrefab, GameObject towerPrefab, int index) {
             buy = uiPrefab.GetComponentInChildren<Button>();
             icon = uiPrefab.GetComponentsInChildren<Image>().First(image => image.gameObject.Has<Tags.UI.MenuImage>());
             icon.sprite = towerPrefab.GetComponent<SpriteRenderer>().sprite;
             towerBase = towerPrefab.GetComponent<TowerBase>();
+            this.towerPrefab = towerPrefab;
+            this.index = index;
         }
     }
 }
