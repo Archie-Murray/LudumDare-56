@@ -50,4 +50,6 @@ public abstract class Enemy : MonoBehaviour {
     }
 
     public abstract void Shoot(Vector3 position);
+
+
 }

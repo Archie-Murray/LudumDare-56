@@ -13,8 +13,13 @@ public class Nanny : MonoBehaviour {
     [SerializeField] int[] wave;
     [SerializeField] Transform[] points;
     [SerializeField] float spawnDelay;
+<<<<<<< HEAD
+    public bool waveComplete = false;
+    [SerializeField] Nanny waitSpawner;
     public Transform[] Locations => points;
+=======
     public Action OnWaveComplete;
+>>>>>>> 1dfe64ead8ef92f29b8cab639cd2c9c4c1ba2d94
 
 
     void Spawn(int EnemiesID) {

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 10
+  maxHealth: 50
 --- !u!58 &8340325738754985429
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   attackTimer:
     _initialTime: 0
     _time: 0
-  attackTime: 1
+  attackTime: 0.3
   enemy:
     serializedVersion: 2
     m_Bits: 64
