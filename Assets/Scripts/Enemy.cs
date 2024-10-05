@@ -16,7 +16,7 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected LayerMask tower;
     [SerializeField] protected float projectileSpeed = 3;
     [SerializeField] protected GameObject projectilePrefab;
-    [SerializeField] protected bool canShoot;
+    [SerializeField] protected bool canShoot = true;
     
     private void Start() {
         // tower = LayerMask.NameToLayer("Tower");

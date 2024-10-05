@@ -7,6 +7,7 @@ using Utilities;
 using System.Linq;
 
 public abstract class TowerBase : MonoBehaviour {
+    [SerializeField] protected int cost;
     [SerializeField] protected float damage;
     [SerializeField] protected float range;
     [SerializeField] protected Health health;
@@ -15,6 +16,8 @@ public abstract class TowerBase : MonoBehaviour {
     [SerializeField] protected float attackTime;
     [SerializeField] protected LayerMask enemy;
     [SerializeField] protected bool canShoot = true;
+
+    public int Cost => cost;
 
     public abstract void Shoot(Vector3 position);
 
