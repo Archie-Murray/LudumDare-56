@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: {x: 10, y: 10}
   towerMenu: {fileID: 0}
+  heldTower: {fileID: 0}
+  placementIndicator: {fileID: 0}
+  indicatorPrefab: {fileID: 1948227893850513699, guid: df80a7964aa9e8a4eaca44baf52a7f61, type: 3}

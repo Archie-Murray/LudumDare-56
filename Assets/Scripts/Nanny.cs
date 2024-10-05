@@ -14,6 +14,7 @@ public class Nanny : MonoBehaviour {
     [SerializeField] float spawnDelay;
     public bool waveComplete = false;
     [SerializeField] Nanny waitSpawner;
+    public Transform[] Locations => points;
 
     // Update is called once per frame
     void Update() {
