@@ -27,11 +27,12 @@ public class Nanny : MonoBehaviour {
             Spawn(wave[i]);
             yield return Yielders.WaitForSeconds(spawnDelay);
         }
-        if (transform.childCount == 0)
+        while(transform.childCount > 0)
         {
-            OnWaveComplete?.Invoke();
+            yield return Yielders.WaitForSeconds(1);
+                
         }
-        
+        OnWaveComplete?.Invoke();
     }
 
     public void StartWave()

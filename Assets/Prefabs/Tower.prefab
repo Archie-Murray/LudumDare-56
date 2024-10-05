@@ -98,13 +98,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 10
   damage: 2
-  range: 6.67
+  range: 3
   health: {fileID: 6176923173580302205}
   projectilePrefab: {fileID: 3105783444695474603, guid: 6f37a26dbee27364dbdabfd96346233f, type: 3}
   attackTimer:
     _initialTime: 0
     _time: 0
-  attackTime: 0.3
+  attackTime: 1
   enemy:
     serializedVersion: 2
     m_Bits: 64

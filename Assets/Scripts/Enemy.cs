@@ -14,6 +14,7 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected CountDownTimer attackTimer;
     [SerializeField] protected float attackTime;
     [SerializeField] protected LayerMask tower;
+    [SerializeField] protected LayerMask End;
     [SerializeField] protected float projectileSpeed = 3;
     [SerializeField] protected GameObject projectilePrefab;
     [SerializeField] protected bool canShoot = true;
@@ -52,5 +53,17 @@ public abstract class Enemy : MonoBehaviour {
 
     public abstract void Shoot(Vector3 position);
 
+    private void OnTriggerEnter2D(Collider2D colide)
+    {
+        if(1 << colide.gameObject.layer == End.value) 
+        {
+            if(colide.TryGetComponent(out Health health))
+                {
+                health.Damage(damage);
+                Destroy(gameObject);
+            }
 
+        }
+
+    }
 }
