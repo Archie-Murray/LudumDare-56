@@ -3,8 +3,8 @@ using UnityEngine;
 public class GridManager : MonoBehaviour {
     [SerializeField] private TowerBase[,] towers;
     [SerializeField] private Vector2Int size;
-    TowerBase heldTower = null;
-    TowerMenu towerMenu;
+    [SerializeField] private  TowerMenu towerMenu;
+    private TowerBase heldTower = null;
 
     public void Start() {
         towers = new TowerBase[size.y, size.x];
