@@ -215,12 +215,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 6401113768155644742}
-  damage: 1
+  damage: 2
   range: 2
   attackTimer:
     _initialTime: 0
     _time: 0
-  attackTime: 0
+  attackTime: 2
   tower:
     serializedVersion: 2
     m_Bits: 8
