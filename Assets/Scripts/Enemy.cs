@@ -17,12 +17,20 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected float projectileSpeed = 3;
     [SerializeField] protected GameObject projectilePrefab;
     [SerializeField] protected bool canShoot = true;
+    [SerializeField] protected Animator animator;
+
+    protected readonly int deathID = Animator.StringToHash("Death");
     
     private void Start() {
         // tower = LayerMask.NameToLayer("Tower");
         attackTimer = new CountDownTimer(0f);
         attackTimer.Start();
-        health.onDeath += () => canShoot = false;
+        animator = GetComponent<Animator>();
+        health.onDeath += () => {
+            canShoot = false;
+            animator.Play(deathID);
+            Instantiate(Assets.instance.enemyDeathParticles, transform.position, transform.rotation);
+        };
     }
 
     private void FixedUpdate() {

@@ -3,12 +3,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Utilities;
-
-public class Globals : Singleton<Globals> {
-    public int money;
-}
-
 public class TowerMenu : MonoBehaviour {
     
     [SerializeField] private GameObject[] towers;
