@@ -5,11 +5,12 @@ using UnityEngine;
 public class MultiShotTower : TowerBase {
 
     [SerializeField] private int maxProjectiles = 3;
+    [SerializeField] string AnimName = "Foot";
 
     protected override Collider2D[] GetTargets() {
         Collider2D[] inRange = Physics2D.OverlapCircleAll(transform.position, range, enemy);
         if (inRange.Length == 0) {
-            return null;
+            return new Collider2D[] {};
         }
         Collider2D[] targets = new Collider2D[Mathf.Min(maxProjectiles, inRange.Length)];
         for (int i = 0; i < targets.Length; i++) {
