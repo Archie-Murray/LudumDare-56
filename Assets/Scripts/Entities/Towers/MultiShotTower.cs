@@ -38,8 +38,7 @@ public class MultiShotTower : Tower {
         canShoot = false;
         animator.speed = ANIM_TIME / shotDelay;
         foreach (Collider2D enemy in enemies) {
-            if (!enemy)
-            {
+            if (!enemy) {
                 continue;
             }
             emitter.Play(SoundEffectType.Shoot);
