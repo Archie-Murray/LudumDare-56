@@ -32,13 +32,19 @@ public abstract class TowerBase : MonoBehaviour {
         if (attackTimer.IsFinished && canShoot) {
             Collider2D[] targets = GetTargets();
             foreach (Collider2D target in GetTargets()) {
-                transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (Vector2)(target.transform.position - transform.position).normalized), Vector3.forward);
                 Shoot(target.transform.position);
             }
             if (targets.Length > 0) {
                 attackTimer.Reset(attackTime);
                 attackTimer.Start();
             }
+<<<<<<< HEAD
+=======
+            transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (Vector2)(closest.transform.position - transform.position).normalized), Vector3.forward);
+            Shoot(closest.transform.position);
+            attackTimer.Reset(attackTime);
+            attackTimer.Start();
+>>>>>>> 29565911bfe703898a94a6079cbdd3a6e4529df6
         }
     }
     
