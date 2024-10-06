@@ -10,6 +10,6 @@ public class WaveReader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        WaveTxt.text = $"Wave: {WaveManager.currentWave} out of: {WaveManager.Nannies.Length}";
+        WaveTxt.text = $"Wave: {WaveManager.currentWave} / {WaveManager.Nannies.Length}";
     }
 }
