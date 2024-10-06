@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class MoneyReader : MonoBehaviour
 {
-    [SerializeField] TMP_Text HPText;
-    [SerializeField] WaveManager WaveManager;
+    [SerializeField] TMP_Text MoneyTXT;
+
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        HPText.text = $"Wave: {WaveManager.currentWave}";
+        MoneyTXT.text = $"£{Globals.instance.money}";
     }
 }
