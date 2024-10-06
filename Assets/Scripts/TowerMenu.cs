@@ -39,13 +39,18 @@ public class TowerMenu : MonoBehaviour {
 
     public void Place(Tower tower) {
         Globals.instance.money -= tower.Cost;
+        CheckCosts();
     }
 
     public void Show() {
+        CheckCosts();
+        menuGroup.FadeCanvas(1f, false, this);
+    }
+
+    private void CheckCosts() {
         foreach (MenuItem menuItem in uiItems) {
             menuItem.buy.interactable = Globals.instance.money >= menuItem.towerBase.Cost;
         }
-        menuGroup.FadeCanvas(1f, false, this);
     }
 
     public void Hide() {
