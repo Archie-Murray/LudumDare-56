@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8340325738754985429}
   - component: {fileID: 2622096325411944775}
   - component: {fileID: 6931958376917306979}
+  - component: {fileID: -224951450955490642}
   m_Layer: 3
   m_Name: Tower
   m_TagString: Untagged
@@ -98,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 10
   damage: 2
-  range: 3
+  range: 2
   health: {fileID: 6176923173580302205}
   projectilePrefab: {fileID: 3105783444695474603, guid: 6f37a26dbee27364dbdabfd96346233f, type: 3}
   attackTimer:
@@ -109,6 +110,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canShoot: 1
+  anim: {fileID: -224951450955490642}
+  AnimName: Hand Throw
 --- !u!212 &6931958376917306979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -161,3 +164,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-224951450955490642
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659759222216098130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6687de8c0a15ce74088f0eadb8e7d0ec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -16,7 +16,7 @@ public abstract class TowerBase : MonoBehaviour {
     [SerializeField] protected float attackTime;
     [SerializeField] protected LayerMask enemy;
     [SerializeField] protected bool canShoot = true;
-
+    [SerializeField] protected Animator anim;
     public int Cost => cost;
 
     public abstract void Shoot(Vector3 position);
@@ -34,7 +34,7 @@ public abstract class TowerBase : MonoBehaviour {
             if (!closest) {
                 return;
             }
-
+            transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (Vector2)(closest.transform.position - transform.position).normalized), Vector3.forward);
             Shoot(closest.transform.position);
             attackTimer.Reset(attackTime);
             attackTimer.Start();
