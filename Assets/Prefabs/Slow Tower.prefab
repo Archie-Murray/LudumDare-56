@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6931958376917306979}
   - component: {fileID: -224951450955490642}
   - component: {fileID: -8439803215051784779}
+  - component: {fileID: 4645674274937613201}
   m_Layer: 3
   m_Name: Slow Tower
   m_TagString: Untagged
@@ -184,7 +185,25 @@ MonoBehaviour:
     m_Bits: 64
   canShoot: 1
   anim: {fileID: 0}
+  emitter: {fileID: 0}
   aoeDuration: 3
   slowDuration: 2
   speedModifier: 0.5
   aoeRadius: 1.5
+--- !u!114 &4645674274937613201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659759222216098130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - Clip: {fileID: 8300000, guid: 1e5b153f837c676419ee9de7c03755f6, type: 3}
+    Type: 3
+  - Clip: {fileID: 8300000, guid: df1c7b3f0a5748a40b6f3aa265e5a627, type: 3}
+    Type: 4

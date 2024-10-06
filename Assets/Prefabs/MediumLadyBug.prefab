@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -2531716612791698764}
   - component: {fileID: 6115152025126390958}
   - component: {fileID: 4688265914702535053}
+  - component: {fileID: 5645422787035728649}
   m_Layer: 6
   m_Name: MediumLadyBug
   m_TagString: Untagged
@@ -202,6 +203,8 @@ MonoBehaviour:
   Locations: []
   speed: 2
   rotationSpeed: 360
+  speedModifier: 1
+  modifierDuration: 0
 --- !u!114 &4688265914702535053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +235,21 @@ MonoBehaviour:
   canShoot: 1
   animator: {fileID: 0}
   moneyGained: 10
+  emitter: {fileID: 0}
+--- !u!114 &5645422787035728649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798750533688040898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - Clip: {fileID: 8300000, guid: 374b9c995018aef40b3526b25f004876, type: 3}
+    Type: 3
+  - Clip: {fileID: 8300000, guid: 677a55fdb6a1137418493ab331a2c281, type: 3}
+    Type: 1

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4102028987389593649}
   - component: {fileID: 7663606116589350709}
   - component: {fileID: 8192028731541544030}
+  - component: {fileID: 1288568293071083349}
   m_Layer: 6
   m_Name: Bombadier Beetle
   m_TagString: Untagged
@@ -190,6 +191,7 @@ MonoBehaviour:
   canShoot: 1
   animator: {fileID: 0}
   moneyGained: 20
+  emitter: {fileID: 0}
   explosionRange: 5
   shotHeight: 4
 --- !u!114 &7663606116589350709
@@ -207,6 +209,8 @@ MonoBehaviour:
   Locations: []
   speed: 1
   rotationSpeed: 360
+  speedModifier: 1
+  modifierDuration: 0
 --- !u!50 &8192028731541544030
 Rigidbody2D:
   serializedVersion: 4
@@ -234,3 +238,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1288568293071083349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896894772250935947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - Clip: {fileID: 8300000, guid: de969e4978df03c4f9b50a6af421009f, type: 3}
+    Type: 1
+  - Clip: {fileID: 8300000, guid: 374b9c995018aef40b3526b25f004876, type: 3}
+    Type: 3
