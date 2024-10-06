@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
     [SerializeField] public Transform[] Locations;
-    int counter = 0;
+    public int counter = 0;
     [SerializeField] float speed = 5;
     [SerializeField] float rotationSpeed = 360;
     private bool canMove = true;
@@ -15,7 +15,9 @@ public class Movement : MonoBehaviour {
     [SerializeField] private float modifierDuration = 0f;
 
     void Start() {
-        GetComponent<Health>().onDeath += () => canMove = false;
+        if (TryGetComponent<Health>(out Health health)) {
+            health.onDeath += () => canMove = false;
+        }
     }
     // Update is called once per frame
     void FixedUpdate() {
@@ -45,5 +47,13 @@ public class Movement : MonoBehaviour {
     public void ApplySlow(float speedModifier, float duration) {
         this.speedModifier = speedModifier;
         modifierDuration = duration;
+    }
+
+    public void AllowMovement() {
+        canMove = true;
+    }
+
+    public void StopMovement() {
+        canMove = false;
     }
 }

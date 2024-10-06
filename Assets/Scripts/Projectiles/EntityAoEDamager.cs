@@ -23,7 +23,7 @@ namespace ProjectileComponents {
             //     DamageFilter.Enemy => collision.gameObject.Has<Enemy>() ? collision.GetComponent<Health>() : null,
             //     _ => null
             // };
-            if (!collision.gameObject.Has<TowerBase>()) {
+            if (!collision.gameObject.Has<Tower>()) {
                 return;
             }
             foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, _range, _tower)) {

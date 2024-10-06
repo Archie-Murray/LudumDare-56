@@ -6763,6 +6763,7 @@ GameObject:
   - component: {fileID: 971755695}
   - component: {fileID: 971755696}
   - component: {fileID: 971755697}
+  - component: {fileID: 971755698}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -6876,6 +6877,7 @@ MonoBehaviour:
   canShoot: 1
   animator: {fileID: 0}
   moneyGained: 0
+  emitter: {fileID: 0}
 --- !u!4 &971755694
 Transform:
   m_ObjectHideFlags: 0
@@ -6981,8 +6983,24 @@ MonoBehaviour:
   - {fileID: 290857171}
   - {fileID: 449165198}
   - {fileID: 97519617}
+  counter: 0
   speed: 5
   rotationSpeed: 360
+  speedModifier: 1
+  modifierDuration: 0
+--- !u!114 &971755698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971755689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects: []
 --- !u!1 &1739954305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7060,7 +7078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyTypes:
-  - {fileID: 896894772250935947, guid: fe7930b7568e258449998eb5364ad4e1, type: 3}
+  - {fileID: 4672141282464032019, guid: 1d52b0ac9ae57c8409683d6fa5fd3db0, type: 3}
   wave: 00000000
   points:
   - {fileID: 1739954306}

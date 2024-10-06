@@ -6,10 +6,10 @@ using UnityEngine.Tilemaps;
 using Utilities;
 
 public class GridManager : Singleton<GridManager> {
-    [SerializeField] private TowerBase[,] towers;
+    [SerializeField] private Tower[,] towers;
     [SerializeField] private bool[,] validPoints;
     [SerializeField] private TowerMenu towerMenu;
-    [SerializeField] private TowerBase heldTower = null;
+    [SerializeField] private Tower heldTower = null;
     [SerializeField] private SpriteRenderer placementIndicator;
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField] private Tilemap tileMap;
@@ -18,7 +18,7 @@ public class GridManager : Singleton<GridManager> {
     const string TILE_NONE = "PathNone";
 
     public void Start() {
-        towers = new TowerBase[size.y, size.x];
+        towers = new Tower[size.y, size.x];
         validPoints = new bool[size.y, size.x];
         for (int y = size.y - 1; y >= 0; y--) {
             for (int x = 0; x < size.x; x++) {
@@ -32,7 +32,7 @@ public class GridManager : Singleton<GridManager> {
         Debug.Log($"Cell Bounds: {tileMap.cellBounds.ToString()}, Size: {tileMap.size}");
     }
 
-    public void InitializePlacement(TowerBase tower) {
+    public void InitializePlacement(Tower tower) {
         heldTower = tower;
         SpriteRenderer towerRenderer = heldTower.GetComponent<SpriteRenderer>();
         Color fade = towerRenderer.color;
@@ -70,7 +70,7 @@ public class GridManager : Singleton<GridManager> {
         }
     }
 
-    public void RemoveTower(TowerBase towerBase) {
+    public void RemoveTower(Tower towerBase) {
         validPoints[(int) towerBase.transform.position.y, (int) towerBase.transform.position.x] = true;
         towers[(int) towerBase.transform.position.y, (int) towerBase.transform.position.x] = null;
     }

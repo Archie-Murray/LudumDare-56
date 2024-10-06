@@ -23,21 +23,21 @@ public class TowerMenu : MonoBehaviour {
     }
 
     public void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetKeyDown(KeyCode.Tab) && menuGroup.interactable)) {
             Hide();
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Tab)) {
+        if (Input.GetKeyDown(KeyCode.Tab) && !menuGroup.interactable) {
             Show();
             return;
         }
     }
 
-    public void Cancel(TowerBase tower) {
+    public void Cancel(Tower tower) {
         Destroy(tower.gameObject);
     }
 
-    public void Place(TowerBase tower) {
+    public void Place(Tower tower) {
         Globals.instance.money -= tower.Cost;
     }
 
@@ -60,21 +60,21 @@ public class TowerMenu : MonoBehaviour {
             return;
         }
         Vector3 mousePos = Helpers.instance.MainCamera.ScreenToWorldPoint(Input.mousePosition);
-        GridManager.instance.InitializePlacement(Instantiate(item.towerPrefab, mousePos, Quaternion.identity).GetComponent<TowerBase>());
+        GridManager.instance.InitializePlacement(Instantiate(item.towerPrefab, mousePos, Quaternion.identity).GetComponent<Tower>());
     }
 
     [System.Serializable] public class MenuItem {
         public Button buy;
         public Image icon;
         public GameObject towerPrefab;
-        public TowerBase towerBase;
+        public Tower towerBase;
         public int index = 0;
 
         public MenuItem(GameObject uiPrefab, GameObject towerPrefab, int index) {
             buy = uiPrefab.GetComponentInChildren<Button>();
             icon = uiPrefab.GetComponentsInChildren<Image>().First(image => image.gameObject.Has<Tags.UI.MenuImage>());
             icon.sprite = towerPrefab.GetComponent<SpriteRenderer>().sprite;
-            towerBase = towerPrefab.GetComponent<TowerBase>();
+            towerBase = towerPrefab.GetComponent<Tower>();
             this.towerPrefab = towerPrefab;
             this.index = index;
         }

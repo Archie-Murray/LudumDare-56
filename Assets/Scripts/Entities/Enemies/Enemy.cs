@@ -31,6 +31,7 @@ public abstract class Enemy : MonoBehaviour {
     protected readonly int deathID = Animator.StringToHash("Death");
 
     protected void Start() {
+        emitter = GetComponent<SFXEmitter>();
         // tower = LayerMask.NameToLayer("Tower");
         attackTimer = new CountDownTimer(0f);
         attackTimer.Start();
@@ -55,14 +56,14 @@ public abstract class Enemy : MonoBehaviour {
                 return;
             }
 
-            Shoot(closest.transform.position);
+            Shoot(closest);
             emitter.Play(SoundEffectType.Shoot);
             attackTimer.Reset(attackTime);
             attackTimer.Start();
         }
     }
 
-    public abstract void Shoot(Vector3 position);
+    public abstract void Shoot(Collider2D position);
 
     private void OnTriggerEnter2D(Collider2D colide)
     {

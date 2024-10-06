@@ -48,6 +48,9 @@ public class SFXEmitter : MonoBehaviour {
     }
 
     public float Length(SoundEffectType soundEffect) {
-        return _sources[soundEffect].OrNull()?.clip.length ?? 1f;
+        if (_sources.TryGetValue(soundEffect, out AudioSource source)) {
+            return source.clip.length;
+        } 
+        return 0f;
     }
 }

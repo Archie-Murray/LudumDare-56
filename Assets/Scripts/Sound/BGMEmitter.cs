@@ -60,15 +60,15 @@ public class BGMEmitter : MonoBehaviour {
             Debug.Log("Only changing target");
             while (timer.IsRunning) {
                 timer.Update(Time.fixedDeltaTime);
-                target.volume = 1f - timer.Progress();
+                target.volume = timer.Progress();
                 yield return Yielders.WaitForFixedUpdate;
             }
         } else {
             Debug.Log("Changing both");
             while (timer.IsRunning) {
                 timer.Update(Time.fixedDeltaTime);
-                current.volume = timer.Progress();
-                target.volume = 1f - timer.Progress();
+                current.volume = 1f - timer.Progress();
+                target.volume = timer.Progress();
                 yield return Yielders.WaitForFixedUpdate;
             }
             current.Stop();

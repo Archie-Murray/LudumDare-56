@@ -10,7 +10,7 @@ using System.Linq;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SFXEmitter))]
 [RequireComponent(typeof(SpriteRenderer))]
-public abstract class TowerBase : MonoBehaviour {
+public abstract class Tower : MonoBehaviour {
     [SerializeField] protected int cost;
     [SerializeField] protected float damage;
     [SerializeField] protected float range;
@@ -20,18 +20,21 @@ public abstract class TowerBase : MonoBehaviour {
     [SerializeField] protected float attackTime;
     [SerializeField] protected LayerMask enemy;
     [SerializeField] protected bool canShoot = true;
-    [SerializeField] protected Animator anim;
+    [SerializeField] protected Animator animator;
     [SerializeField] protected SFXEmitter emitter;
     public int Cost => cost;
 
-    public abstract void Shoot(Vector3 position);
+    public abstract void Shoot(Collider2D[] enemies);
 
     private void Start() {
         attackTimer = new CountDownTimer(0f);
         attackTimer.Start();
+        emitter = GetComponent<SFXEmitter>();
+        animator = GetComponent<Animator>();
         health.onDeath += () => {
             canShoot = false;
             GridManager.instance.RemoveTower(this);
+            Instantiate(Assets.instance.towerDeathParticles, transform.position, transform.rotation);
             Destroy(gameObject, emitter.Length(SoundEffectType.Death));
             enabled = false;
         };
@@ -42,14 +45,8 @@ public abstract class TowerBase : MonoBehaviour {
         attackTimer.Update(Time.fixedDeltaTime);
         if (attackTimer.IsFinished && canShoot) {
             Collider2D[] targets = GetTargets();
-            foreach (Collider2D target in targets) {
-                transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (Vector2)(target.transform.position - transform.position).normalized), Vector3.forward);
-                Shoot(target.transform.position);
-                emitter.Play(SoundEffectType.Shoot);
-            }
             if (targets.Length > 0) {
-                attackTimer.Reset(attackTime);
-                attackTimer.Start();
+                Shoot(targets);
             }
         }
     }
