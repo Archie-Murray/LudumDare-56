@@ -15,6 +15,7 @@ public class GridManager : Singleton<GridManager> {
     [SerializeField] private Tilemap tileMap;
     [SerializeField] private Vector2Int size;
     [SerializeField] private Vector3Int checkPos;
+    [SerializeField] private SFXEmitter Emmiter;
     const string TILE_NONE = "PathNone";
 
     public void Start() {
@@ -30,6 +31,7 @@ public class GridManager : Singleton<GridManager> {
         placementIndicator = Instantiate(indicatorPrefab, -Vector3.one, Quaternion.identity).GetComponent<SpriteRenderer>();
         placementIndicator.gameObject.SetActive(false);
         Debug.Log($"Cell Bounds: {tileMap.cellBounds.ToString()}, Size: {tileMap.size}");
+        Emmiter = GetComponent<SFXEmitter>();
     }
 
     public void InitializePlacement(Tower tower) {
@@ -53,6 +55,7 @@ public class GridManager : Singleton<GridManager> {
             bool validPos = validPoints[Mathf.Clamp(gridPos.y, 0, size.y - 1), Mathf.Clamp(gridPos.x, 0, size.x - 1)];
             placementIndicator.color = validPos ? Color.green : Color.red;
             if (Input.GetMouseButtonDown(0) && validPos) {
+                Emmiter.Play(SoundEffectType.TowerPlace);
                 towers[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = heldTower;
                 validPoints[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = false;
                 towerMenu.Place(heldTower);

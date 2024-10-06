@@ -39,7 +39,11 @@ namespace ProjectileComponents {
                 _targetPosition = _target.position;
             }
             if (Vector2.Distance(_targetPosition, transform.position) <= 0.1f) {
-                _target.GetComponent<Health>().Damage(_damage);
+                if (_target)
+                { 
+                    _target.GetComponent<Health>().Damage(_damage);
+                }
+                
                 Destroy(gameObject);
             } else {
                 // TODO: Fix this to use an arc

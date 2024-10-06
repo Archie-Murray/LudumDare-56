@@ -13,11 +13,13 @@ public class Movement : MonoBehaviour {
     private bool canMove = true;
     [SerializeField] private float speedModifier = 1f;
     [SerializeField] private float modifierDuration = 0f;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     void Start() {
         if (TryGetComponent<Health>(out Health health)) {
             health.onDeath += () => canMove = false;
         }
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     // Update is called once per frame
     void FixedUpdate() {
@@ -29,8 +31,8 @@ public class Movement : MonoBehaviour {
             }
         } else if (canMove) {
             transform.position = Vector3.MoveTowards(transform.position, Locations[counter].position, speed * Time.fixedDeltaTime);
-            transform.rotation = Quaternion.RotateTowards(
-                transform.rotation, 
+            spriteRenderer.transform.rotation = Quaternion.RotateTowards(
+                spriteRenderer.transform.rotation, 
                 Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, Locations[counter].position - transform.position), Vector3.forward),
                 rotationSpeed * Time.fixedDeltaTime
             );

@@ -184,7 +184,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canShoot: 1
-  anim: {fileID: 0}
+  animator: {fileID: 0}
   emitter: {fileID: 0}
   aoeDuration: 3
   slowDuration: 2
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effects:
-  - Clip: {fileID: 8300000, guid: 1e5b153f837c676419ee9de7c03755f6, type: 3}
+  - Clip: {fileID: 8300000, guid: 8d00c05f2e229184b88fa040bda56712, type: 3}
     Type: 3
-  - Clip: {fileID: 8300000, guid: df1c7b3f0a5748a40b6f3aa265e5a627, type: 3}
+  - Clip: {fileID: 8300000, guid: 5160ab2065e2f0b47932ca64ab80c731, type: 3}
     Type: 4

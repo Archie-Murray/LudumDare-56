@@ -38,6 +38,10 @@ public class MultiShotTower : Tower {
         canShoot = false;
         animator.speed = ANIM_TIME / shotDelay;
         foreach (Collider2D enemy in enemies) {
+            if (!enemy)
+            {
+                continue;
+            }
             emitter.Play(SoundEffectType.Shoot);
             animator.Play(attackID);
             Quaternion rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (Vector2)(enemy.transform.position - transform.position).normalized), Vector3.forward);
