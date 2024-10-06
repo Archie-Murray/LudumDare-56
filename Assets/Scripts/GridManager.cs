@@ -34,6 +34,7 @@ public class GridManager : Singleton<GridManager> {
 
     public void InitializePlacement(Tower tower) {
         heldTower = tower;
+        heldTower.gameObject.layer = 0;
         SpriteRenderer towerRenderer = heldTower.GetComponent<SpriteRenderer>();
         Color fade = towerRenderer.color;
         fade.a = 0.5f;
@@ -60,6 +61,7 @@ public class GridManager : Singleton<GridManager> {
                 fade.a = 1f;
                 towerRenderer.color = fade;
                 placementIndicator.gameObject.SetActive(false);
+                heldTower.gameObject.layer = LayerMask.NameToLayer("Tower");
                 heldTower.enabled = true;
                 heldTower = null;
             } else if (Input.GetMouseButtonDown(1)) {
