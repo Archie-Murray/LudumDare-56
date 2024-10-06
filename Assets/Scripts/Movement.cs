@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour {
     [SerializeField] float speed = 5;
     [SerializeField] float rotationSpeed = 360;
     private bool canMove = true;
+    [SerializeField] private float speedModifier = 1f;
+    [SerializeField] private float modifierDuration = 0f;
 
     void Start() {
         GetComponent<Health>().onDeath += () => canMove = false;
@@ -31,5 +33,17 @@ public class Movement : MonoBehaviour {
                 rotationSpeed * Time.fixedDeltaTime
             );
         }
+
+        if (speedModifier != 1f) {
+            modifierDuration = Mathf.Max(0f, modifierDuration - Time.fixedDeltaTime);
+            if (modifierDuration == 0f) {
+                speedModifier = 1f;
+            }
+        }
+    }
+
+    public void ApplySlow(float speedModifier, float duration) {
+        this.speedModifier = speedModifier;
+        modifierDuration = duration;
     }
 }

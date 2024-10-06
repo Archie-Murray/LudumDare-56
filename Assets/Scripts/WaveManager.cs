@@ -1,39 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WaveManager : MonoBehaviour
-{
+public class WaveManager : MonoBehaviour {
     [SerializeField] public Nanny[] Nannies;
     [SerializeField] Button button;
     [SerializeField] ParticleSystem confety;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] private BGMEmitter emitter;
     public int currentWave;
 
     // Update on wave state change
-    private void Start()
-    {
+    private void Start() {
         button.onClick.AddListener(() => OnWaveStateChange());
     }
-    void OnWaveStateChange()
-    {
+    void OnWaveStateChange() {
+        emitter.PlayBGM(BGMType.Wave);
         Nannies[currentWave].StartWave();
-        Nannies[currentWave].OnWaveComplete += () => button.interactable = true;
+        if (currentWave < Nannies.Length - 1) { // Do not reset button for last wave
+            Nannies[currentWave].OnWaveComplete += () => {
+                button.interactable = true;
+                emitter.PlayBGM(BGMType.Building);
+            };
+        } else {
+            Nannies[currentWave].OnWaveComplete += Win;
+        }
         currentWave++;
         button.interactable = false;
     }
-    private void LateUpdate()
-    {
-        if (currentWave == Nannies.Length && Nannies[currentWave].transform.childCount == 0)
-        {
-            win();
-        }
-    }
-    void win()
-    {
+    void Win() {
+        emitter.PlayBGM(BGMType.Building);
         confety.Play(true);
         audioSource.Play();
     }
-
 }

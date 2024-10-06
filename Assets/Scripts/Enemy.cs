@@ -6,6 +6,12 @@ using Utilities;
 using System;
 using System.Linq;
 
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(SFXEmitter))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour {
 
     [SerializeField] protected Health health;
@@ -20,6 +26,7 @@ public abstract class Enemy : MonoBehaviour {
     [SerializeField] protected bool canShoot = true;
     [SerializeField] protected Animator animator;
     [SerializeField] protected int moneyGained;
+    [SerializeField] protected SFXEmitter emitter;
 
     protected readonly int deathID = Animator.StringToHash("Death");
 
@@ -30,11 +37,14 @@ public abstract class Enemy : MonoBehaviour {
         animator = GetComponent<Animator>();
         health.onDeath += () => {
             canShoot = false;
+            emitter.Play(SoundEffectType.Death);
             animator.Play(deathID);
             Globals.instance.money += moneyGained;
             Instantiate(Assets.instance.enemyDeathParticles, transform.position, transform.rotation);
-            Destroy(gameObject);
+            Destroy(gameObject, emitter.Length(SoundEffectType.Death));
+            enabled = false;
         };
+        health.onDamage += (float _) => emitter.Play(SoundEffectType.Hit);
     }
 
     private void FixedUpdate() {
@@ -46,6 +56,7 @@ public abstract class Enemy : MonoBehaviour {
             }
 
             Shoot(closest.transform.position);
+            emitter.Play(SoundEffectType.Shoot);
             attackTimer.Reset(attackTime);
             attackTimer.Start();
         }
