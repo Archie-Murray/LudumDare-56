@@ -5193,6 +5193,77 @@ Transform:
   m_Father: {fileID: 1866531937}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1321374067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1321374068}
+  - component: {fileID: 1321374069}
+  m_Layer: 0
+  m_Name: Wave 7 Nanny
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1321374068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321374067}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1965253992}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321374069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321374067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f938806a2cb8425439b2c111cb485439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyTypes:
+  - {fileID: 798750533688040898, guid: ebf39e4b0bcf6cd43b89fc495d206fba, type: 3}
+  - {fileID: 798750533688040898, guid: a144174cc04adef479eed0be8aba1c2d, type: 3}
+  - {fileID: 798750533688040898, guid: 2ebc918e1a29a0d46ad451bab59fd971, type: 3}
+  - {fileID: 896894772250935947, guid: fe7930b7568e258449998eb5364ad4e1, type: 3}
+  - {fileID: 4672141282464032019, guid: 1d52b0ac9ae57c8409683d6fa5fd3db0, type: 3}
+  wave: 04000000
+  points:
+  - {fileID: 1247845431}
+  - {fileID: 1054436006}
+  - {fileID: 640197228}
+  - {fileID: 1339564558}
+  - {fileID: 613663574}
+  - {fileID: 879469826}
+  - {fileID: 1895121838}
+  - {fileID: 784907536}
+  - {fileID: 1693001064}
+  - {fileID: 1339488391}
+  - {fileID: 201940760}
+  - {fileID: 1599396844}
+  - {fileID: 11276464}
+  - {fileID: 467011660}
+  - {fileID: 780653246}
+  - {fileID: 1803977790}
+  - {fileID: 699816677}
+  - {fileID: 1476150030}
+  spawnDelay: 0.2
 --- !u!1 &1339488390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11272,6 +11343,7 @@ Transform:
   - {fileID: 833436064}
   - {fileID: 1247845431}
   - {fileID: 764170177}
+  - {fileID: 1321374068}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
