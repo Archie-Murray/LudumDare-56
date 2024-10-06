@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class WaveReader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] TMP_Text WaveTxt;
+    [SerializeField] WaveManager WaveManager;
     // Update is called once per frame
     void Update()
     {
-        
+        WaveTxt.text = $"Wave: {WaveManager.currentWave} out of: {WaveManager.Nannies.Length}";
     }
 }

@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: -3309103272990819728}
-  damage: 1
-  range: 1
+  damage: 2
+  range: 2
   attackTimer:
     _initialTime: 0
     _time: 0
@@ -231,4 +231,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2959750059900283671, guid: a9a07486e824cde45ab979c331dcc588, type: 3}
   canShoot: 1
   animator: {fileID: 0}
-  moneyGained: 0
+  moneyGained: 5
