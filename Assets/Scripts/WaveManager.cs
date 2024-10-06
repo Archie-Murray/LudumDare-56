@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] Nanny[] Nannies;
+    [SerializeField] public Nanny[] Nannies;
     [SerializeField] Button button;
     public int currentWave;
 
