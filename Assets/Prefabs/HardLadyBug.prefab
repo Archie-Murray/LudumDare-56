@@ -251,3 +251,5 @@ MonoBehaviour:
   _effects:
   - Clip: {fileID: 8300000, guid: 374b9c995018aef40b3526b25f004876, type: 3}
     Type: 3
+  - Clip: {fileID: 8300000, guid: 677a55fdb6a1137418493ab331a2c281, type: 3}
+    Type: 1
