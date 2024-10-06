@@ -36,7 +36,7 @@ public class BossSpider : MonoBehaviour {
         animator = GetComponentInChildren<Animator>();
         movement = GetComponent<Movement>();
         emitter = GetComponent<SFXEmitter>();
-        hit = 1 << LayerMask.NameToLayer("Tower") | 1 << LayerMask.NameToLayer("End");
+        hit = 1 << LayerMask.NameToLayer("End");
         attackTimer.Start();
         eggTimer.Start();
 

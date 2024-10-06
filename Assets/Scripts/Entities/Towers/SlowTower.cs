@@ -9,7 +9,10 @@ public class SlowTower : Tower {
     [SerializeField] private float speedModifier = 0.5f;
     [SerializeField] private float aoeRadius = 3;
 
+    private static readonly int attackID = Animator.StringToHash("Slow shoot");
+
     public override void Shoot(Collider2D[] enemies) {
+        animator.Play(attackID);
         GameObject slow = Instantiate(projectilePrefab, enemies[0].transform.position, Quaternion.identity);
         slow.GetOrAddComponent<AutoDestroy>().Duration = aoeDuration;
         slow.GetOrAddComponent<EntityAoESlow>().Init(speedModifier, slowDuration, aoeRadius);

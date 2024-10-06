@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: -3309103272990819728}
-  damage: 2
+  damage: 6
   range: 1.5
   attackTimer:
     _initialTime: 0

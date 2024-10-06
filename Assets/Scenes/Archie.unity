@@ -6988,6 +6988,7 @@ MonoBehaviour:
   rotationSpeed: 360
   speedModifier: 1
   modifierDuration: 0
+  spriteRenderer: {fileID: 0}
 --- !u!114 &971755698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7078,7 +7079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyTypes:
-  - {fileID: 4672141282464032019, guid: 1d52b0ac9ae57c8409683d6fa5fd3db0, type: 3}
+  - {fileID: 896894772250935947, guid: fe7930b7568e258449998eb5364ad4e1, type: 3}
   wave: 00000000
   points:
   - {fileID: 1739954306}
@@ -7197,6 +7198,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8038521397684535807, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
+      propertyPath: towers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038521397684535807, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
+      propertyPath: towers.Array.data[1]
+      value: 
+      objectReference: {fileID: 659759222216098130, guid: fa360ccb1359bdb4e80f452e141d4989, type: 3}
     - target: {fileID: 8312506806427405648, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_Alpha
       value: 0

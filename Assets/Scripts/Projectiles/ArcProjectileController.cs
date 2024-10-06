@@ -38,7 +38,7 @@ namespace ProjectileComponents {
             if (_target) {
                 _targetPosition = _target.position;
             }
-            if (Vector2.Distance(_targetPosition, transform.position) <= 0.1f) {
+            if (Vector2.Distance(_targetPosition, transform.position) <= 0.2f) {
                 if (_target)
                 { 
                     _target.GetComponent<Health>().Damage(_damage);
