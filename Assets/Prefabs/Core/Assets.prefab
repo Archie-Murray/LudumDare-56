@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2942042896264170501
 MonoBehaviour:
@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDeathParticles: {fileID: 9204688068932753589, guid: 3878a1601010131459b2e1366f5fb3ef, type: 3}
+  towerDeathParticles: {fileID: 5812507897485167319, guid: e89805b26d98488469043263e6c07dbd, type: 3}

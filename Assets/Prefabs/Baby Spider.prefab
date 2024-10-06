@@ -118,7 +118,7 @@ MonoBehaviour:
   target: {fileID: 0}
   movement: {fileID: 0}
   range: 4
-  height: 4
+  height: 1
   damage: 4
   speed: 4
   hit:
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Locations: []
   counter: 0
-  speed: 5
+  speed: 3
   rotationSpeed: 360
   speedModifier: 1
   modifierDuration: 0

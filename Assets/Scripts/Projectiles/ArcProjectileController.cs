@@ -13,6 +13,7 @@ namespace ProjectileComponents {
         [SerializeField] private Transform _target;
         [SerializeField] private Vector3 _linearPosition;
         [SerializeField] private Vector3 _initialPosition;
+        [SerializeField] private Vector3 _targetPosition;
         [SerializeField] private float _progress = 0f;
         [SerializeField] private LayerMask _filter;
         [SerializeField] private float _height;
@@ -34,13 +35,16 @@ namespace ProjectileComponents {
         }
 
         public void FixedUpdate() {
-            if (Vector2.Distance(_target.position, transform.position) <= 0.1f) {
+            if (_target) {
+                _targetPosition = _target.position;
+            }
+            if (Vector2.Distance(_targetPosition, transform.position) <= 0.1f) {
                 _target.GetComponent<Health>().Damage(_damage);
                 Destroy(gameObject);
             } else {
                 // TODO: Fix this to use an arc
-                _progress = Mathf.Clamp01(Vector2.Distance(_linearPosition, _target.position) / Vector2.Distance(_initialPosition, _target.position));
-                _linearPosition = Vector3.MoveTowards(_linearPosition, _target.position, Time.fixedDeltaTime * _speed);
+                _progress = Mathf.Clamp01(Vector2.Distance(_linearPosition, _targetPosition) / Vector2.Distance(_initialPosition, _targetPosition));
+                _linearPosition = Vector3.MoveTowards(_linearPosition, _targetPosition, Time.fixedDeltaTime * _speed);
                 _rb2D.MovePosition(_linearPosition + _height * Mathf.Sin(_progress * Mathf.PI) * Vector3.up);
             }
         }
