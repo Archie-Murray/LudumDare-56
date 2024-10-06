@@ -1,3 +1,5 @@
+using System;
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -66,5 +68,10 @@ public class GridManager : Singleton<GridManager> {
                 heldTower = null;
             }
         }
+    }
+
+    public void RemoveTower(TowerBase towerBase) {
+        validPoints[(int) towerBase.transform.position.y, (int) towerBase.transform.position.x] = true;
+        towers[(int) towerBase.transform.position.y, (int) towerBase.transform.position.x] = null;
     }
 }

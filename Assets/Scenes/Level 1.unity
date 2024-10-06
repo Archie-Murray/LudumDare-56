@@ -5486,7 +5486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5494,7 +5494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_AnchorMin.y
@@ -5538,11 +5538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1150
+      value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 174.79
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5554,6 +5554,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7105860543087574219, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038521397684535807, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
+      propertyPath: towers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8038521397684535807, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
+      propertyPath: towers.Array.data[1]
+      value: 
+      objectReference: {fileID: 2953533851249819783, guid: 6ed4a9b4a9967c54f925275099d12373, type: 3}
+    - target: {fileID: 8038521397684535807, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
+      propertyPath: towers.Array.data[2]
+      value: 
+      objectReference: {fileID: 659759222216098130, guid: fa360ccb1359bdb4e80f452e141d4989, type: 3}
+    - target: {fileID: 8312506806427405648, guid: 18449bbe17ad6fae59a944d6e303ff29, type: 3}
+      propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11113,8 +11129,8 @@ MonoBehaviour:
   - {fileID: 1247845430}
   - {fileID: 764170178}
   button: {fileID: 1353890582}
-  confety: {fileID: 1756372505}
-  audioSource: {fileID: 873777043}
+  confety: {fileID: 0}
+  audioSource: {fileID: 0}
   currentWave: 0
 --- !u!4 &1965253992
 Transform:

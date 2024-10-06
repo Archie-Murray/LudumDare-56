@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5429564075777675195}
   - component: {fileID: 8914404003130615164}
   m_Layer: 3
-  m_Name: Tower 1
+  m_Name: Multi Shot Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,9 +160,9 @@ MonoBehaviour:
   attackTime: 0.2
   enemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   canShoot: 1
-  anim: {fileID: 8914404003130615164}
+  anim: {fileID: 0}
   maxProjectiles: 3
 --- !u!95 &8914404003130615164
 Animator:

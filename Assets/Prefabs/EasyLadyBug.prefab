@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6428139975067321303}
   - component: {fileID: -88924921225227830}
   - component: {fileID: 6283399415760318623}
+  - component: {fileID: 5645422787035728649}
   m_Layer: 6
   m_Name: EasyLadyBug
   m_TagString: Untagged
@@ -202,6 +203,8 @@ MonoBehaviour:
   Locations: []
   speed: 2
   rotationSpeed: 360
+  speedModifier: 1
+  modifierDuration: 0
 --- !u!114 &6283399415760318623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +235,17 @@ MonoBehaviour:
   canShoot: 1
   animator: {fileID: 0}
   moneyGained: 5
+  emitter: {fileID: 0}
+--- !u!114 &5645422787035728649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798750533688040898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects: []
