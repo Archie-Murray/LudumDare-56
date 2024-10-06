@@ -9,7 +9,6 @@ using System.Linq;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SFXEmitter))]
-[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour {
@@ -35,7 +34,7 @@ public abstract class Enemy : MonoBehaviour {
         // tower = LayerMask.NameToLayer("Tower");
         attackTimer = new CountDownTimer(0f);
         attackTimer.Start();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         health.onDeath += () => {
             canShoot = false;
             emitter.Play(SoundEffectType.Death);

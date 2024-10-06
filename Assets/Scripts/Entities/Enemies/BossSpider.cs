@@ -33,7 +33,7 @@ public class BossSpider : MonoBehaviour {
     // Start is called before the first frame update
     private void Start() {
         health = GetComponent<Health>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         movement = GetComponent<Movement>();
         emitter = GetComponent<SFXEmitter>();
         hit = 1 << LayerMask.NameToLayer("Tower") | 1 << LayerMask.NameToLayer("End");
