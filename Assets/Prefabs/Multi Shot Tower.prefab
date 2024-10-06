@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8514891592263637721}
   - component: {fileID: 5429564075777675195}
   - component: {fileID: 8914404003130615164}
+  - component: {fileID: 843322263133672000}
   m_Layer: 3
   m_Name: Multi Shot Tower
   m_TagString: Untagged
@@ -163,7 +164,9 @@ MonoBehaviour:
     m_Bits: 64
   canShoot: 1
   anim: {fileID: 0}
+  emitter: {fileID: 0}
   maxProjectiles: 3
+  AnimName: Foot
 --- !u!95 &8914404003130615164
 Animator:
   serializedVersion: 5
@@ -185,3 +188,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &843322263133672000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2953533851249819783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - Clip: {fileID: 8300000, guid: 1e5b153f837c676419ee9de7c03755f6, type: 3}
+    Type: 3
+  - Clip: {fileID: 8300000, guid: df1c7b3f0a5748a40b6f3aa265e5a627, type: 3}
+    Type: 4
