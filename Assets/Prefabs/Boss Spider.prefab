@@ -138,10 +138,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 576
   moneyGained: 100
-  health: {fileID: 0}
-  animator: {fileID: 0}
-  movement: {fileID: 0}
-  emitter: {fileID: 0}
+  health: {fileID: 1186014815045320258}
+  animator: {fileID: 967846537806798077}
+  movement: {fileID: -5749958941396972927}
+  emitter: {fileID: 4818088177460175811}
 --- !u!114 &1186014815045320258
 MonoBehaviour:
   m_ObjectHideFlags: 0

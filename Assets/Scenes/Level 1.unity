@@ -11356,6 +11356,7 @@ MonoBehaviour:
   - {fileID: 833436065}
   - {fileID: 1247845430}
   - {fileID: 764170178}
+  - {fileID: 1321374069}
   button: {fileID: 1353890582}
   confety: {fileID: 2855758114921827290, guid: e89805b26d98488469043263e6c07dbd, type: 3}
   audioSource: {fileID: 1965253993}
