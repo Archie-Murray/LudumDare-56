@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locations: []
-  speed: 5
+  speed: 2
   rotationSpeed: 360
 --- !u!50 &8192028731541544030
 Rigidbody2D:
