@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3784948961074576205}
   - component: {fileID: 6450089397356289113}
+  - component: {fileID: 106226905553136636}
   m_Layer: 0
   m_Name: Grid Manager
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6450089397356289113
 MonoBehaviour:
@@ -44,8 +45,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893613a060baf0d40b7ef39370bf3ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 10, y: 10}
   towerMenu: {fileID: 0}
   heldTower: {fileID: 0}
   placementIndicator: {fileID: 0}
   indicatorPrefab: {fileID: 1948227893850513699, guid: df80a7964aa9e8a4eaca44baf52a7f61, type: 3}
+  tileMap: {fileID: 0}
+  size: {x: 25, y: 25}
+  checkPos: {x: 0, y: 0, z: 0}
+  Emmiter: {fileID: 0}
+--- !u!114 &106226905553136636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376859454488380589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - Clip: {fileID: 8300000, guid: 5160ab2065e2f0b47932ca64ab80c731, type: 3}
+    Type: 4
