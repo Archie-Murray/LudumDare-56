@@ -19,21 +19,20 @@ public class WaveManager : MonoBehaviour
     void OnWaveStateChange()
     {
         Nannies[currentWave].StartWave();
-        Nannies[currentWave].OnWaveComplete += () => button.interactable = true;
+        if (currentWave < Nannies.Length - 1)
+        { // Do not reset button for last wave
+            Nannies[currentWave].OnWaveComplete += () => button.interactable = true;
+        }
+        else
+        {
+            Nannies[currentWave].OnWaveComplete += Win;
+        }
         currentWave++;
         button.interactable = false;
     }
-    private void LateUpdate()
-    {
-        if (currentWave == Nannies.Length && Nannies[currentWave].transform.childCount == 0)
-        {
-            win();
-        }
-    }
-    void win()
+    void Win()
     {
         confety.Play(true);
         audioSource.Play();
     }
-
 }
