@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 20
+  maxHealth: 10
 --- !u!50 &-5142113815109349700
 Rigidbody2D:
   serializedVersion: 4
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 808109786454849400}
   damage: 2
-  range: 2
+  range: 1.5
   attackTimer:
     _initialTime: 0
     _time: 0
