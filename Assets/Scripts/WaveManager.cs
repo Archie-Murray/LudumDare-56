@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class WaveManager : MonoBehaviour {
     [SerializeField] public Nanny[] Nannies;
     [SerializeField] Button button;
-    [SerializeField] ParticleSystem confety;
+    [SerializeField] GameObject confety;
     [SerializeField] AudioSource audioSource;
     [SerializeField] private BGMEmitter emitter;
     public int currentWave;
@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour {
     }
     void Win() {
         emitter.PlayBGM(BGMType.Building);
-        confety.Play(true);
+        confety.SetActive(true);
         audioSource.Play();
     }
 }

@@ -190,7 +190,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3022656579468707222, guid: bbf23519305c0e347ad0e036e0829ccf, type: 3}
   canShoot: 1
   animator: {fileID: 0}
-  moneyGained: 20
+  moneyGained: 25
   emitter: {fileID: 0}
   explosionRange: 5
   shotHeight: 4
@@ -207,10 +207,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Locations: []
+  counter: 0
   speed: 1
   rotationSpeed: 360
   speedModifier: 1
   modifierDuration: 0
+  spriteRenderer: {fileID: 0}
 --- !u!50 &8192028731541544030
 Rigidbody2D:
   serializedVersion: 4
