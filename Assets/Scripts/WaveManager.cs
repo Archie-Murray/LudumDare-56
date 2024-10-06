@@ -7,6 +7,8 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField] public Nanny[] Nannies;
     [SerializeField] Button button;
+    [SerializeField] ParticleSystem confety;
+    [SerializeField] AudioSource audioSource;
     public int currentWave;
 
     // Update on wave state change
@@ -20,6 +22,18 @@ public class WaveManager : MonoBehaviour
         Nannies[currentWave].OnWaveComplete += () => button.interactable = true;
         currentWave++;
         button.interactable = false;
+    }
+    private void LateUpdate()
+    {
+        if (currentWave == Nannies.Length && Nannies[currentWave].transform.childCount == 0)
+        {
+            win();
+        }
+    }
+    void win()
+    {
+        confety.Play(true);
+        audioSource.Play();
     }
 
 }
