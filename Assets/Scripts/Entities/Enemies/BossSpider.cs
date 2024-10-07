@@ -66,7 +66,12 @@ public class BossSpider : MonoBehaviour {
         }
         if (attackTimer.IsFinished) {
             movement.AllowMovement();
-            foreach (Collider2D entity in Physics2D.OverlapCircleAll(transform.position, attackRange, hit)) {
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, attackRange, hit);
+            if (enemies.Length < 1) {
+                return;
+            }
+            animator.Play("Attack");
+            foreach (Collider2D entity in enemies) {
                 movement.StopMovement();
                 if (!entity.TryGetComponent(out Health health)) { return; }
                 health.Damage(damage);
