@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using TMPro;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 using Utilities;
 
 public class HealthReader : MonoBehaviour {
     [SerializeField] TMP_Text HPText;
     [SerializeField] Health health;
-
+    [SerializeField] Image fade;
     [SerializeField] GameObject[] cakes;
 
     [SerializeField] private CanvasGroup loseScreen;
@@ -36,7 +37,14 @@ public class HealthReader : MonoBehaviour {
 
     private IEnumerator DeathSplash() {
         loseScreen.FadeCanvas(1f, false, this);
-        yield return Yielders.WaitForSeconds(2f);
-         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        yield return Yielders.WaitForSeconds(1f);
+        float timer = 0f;
+        while (timer <= 1f) {
+            timer += Time.fixedDeltaTime;
+            fade.color = Color.Lerp(Color.clear, Color.black, timer);
+            yield return Yielders.WaitForFixedUpdate;
+        }
+        fade.color = Color.black;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

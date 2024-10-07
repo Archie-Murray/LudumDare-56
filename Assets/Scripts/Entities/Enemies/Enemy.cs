@@ -5,6 +5,7 @@ using UnityEngine;
 using Utilities;
 using System;
 using System.Linq;
+using ProjectileComponents;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Collider2D))]
@@ -39,12 +40,17 @@ public abstract class Enemy : MonoBehaviour {
             canShoot = false;
             emitter.Play(SoundEffectType.Death);
             animator.Play(deathID);
-            Globals.instance.money += moneyGained;
+            Globals.instance.ChangeMoney(moneyGained);
             Instantiate(Assets.instance.enemyDeathParticles, transform.position, transform.rotation);
             Destroy(gameObject, emitter.Length(SoundEffectType.Death));
+            GetComponentInChildren<SpriteRenderer>().color = Color.clear;
             enabled = false;
         };
-        health.onDamage += (float _) => emitter.Play(SoundEffectType.Hit);
+        health.onDamage += (float _) => {
+            emitter.Play(SoundEffectType.Hit);
+            Instantiate(Assets.instance.enemyHitParticles, transform.position, Quaternion.identity)
+                .GetOrAddComponent<AutoDestroy>().Duration = 1f;
+        };
     }
 
     private void FixedUpdate() {

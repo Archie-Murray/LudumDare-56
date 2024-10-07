@@ -45,7 +45,7 @@ public class BossSpider : MonoBehaviour {
             dead = true;
             emitter.Play(SoundEffectType.Death);
             animator.Play(deathID);
-            Globals.instance.money += moneyGained;
+            Globals.instance.ChangeMoney(moneyGained);
             Instantiate(Assets.instance.enemyDeathParticles, transform.position, transform.rotation);
             Destroy(gameObject, emitter.Length(SoundEffectType.Death));
             enabled = false;

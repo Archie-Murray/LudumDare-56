@@ -1,5 +1,7 @@
 using System;
 
+using ProjectileComponents;
+
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -54,19 +56,22 @@ public class GridManager : Singleton<GridManager> {
 
             bool validPos = validPoints[Mathf.Clamp(gridPos.y, 0, size.y - 1), Mathf.Clamp(gridPos.x, 0, size.x - 1)];
             placementIndicator.color = validPos ? Color.green : Color.red;
-            if (Input.GetMouseButtonDown(0) && validPos) {
+            if (Input.GetMouseButton(0) && validPos) {
                 emitter.Play(SoundEffectType.TowerPlace);
                 towers[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = heldTower;
                 validPoints[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = false;
-                towerMenu.Place(heldTower);
                 SpriteRenderer towerRenderer = heldTower.GetComponent<SpriteRenderer>();
                 Color fade = towerRenderer.color;
                 fade.a = 1f;
                 towerRenderer.color = fade;
                 placementIndicator.gameObject.SetActive(false);
+                Instantiate(Assets.instance.towerPlaceParticles, heldTower.transform.position, Quaternion.identity)
+                    .GetOrAddComponent<AutoDestroy>().Duration = 1f;
                 heldTower.gameObject.layer = LayerMask.NameToLayer("Tower");
                 heldTower.enabled = true;
-                heldTower = null;
+                if (!towerMenu.Place(heldTower)) {
+                    heldTower = null;
+                }
             } else if (Input.GetMouseButtonDown(1)) {
                 towerMenu.Cancel(heldTower);
                 placementIndicator.gameObject.SetActive(false);
@@ -78,5 +83,9 @@ public class GridManager : Singleton<GridManager> {
     public void RemoveTower(Tower towerBase) {
         validPoints[(int) towerBase.transform.position.y, (int) towerBase.transform.position.x] = true;
         towers[(int) towerBase.transform.position.y, (int) towerBase.transform.position.x] = null;
+    }
+
+    public void UpdateCosts() {
+        towerMenu.CheckCosts();
     }
 }

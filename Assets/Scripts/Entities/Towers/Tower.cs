@@ -5,6 +5,7 @@ using UnityEngine;
 using Entity;
 using Utilities;
 using System.Linq;
+using ProjectileComponents;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Collider2D))]
@@ -38,7 +39,11 @@ public abstract class Tower : MonoBehaviour {
             Destroy(gameObject, emitter.Length(SoundEffectType.Death));
             enabled = false;
         };
-        health.onDamage += (_) => emitter.Play(SoundEffectType.Hit);
+        health.onDamage += (_) => {
+            emitter.Play(SoundEffectType.Hit);
+            Instantiate(Assets.instance.towerHitParticles, transform.position, Quaternion.identity)
+                .GetOrAddComponent<AutoDestroy>().Duration = 1f;
+        };
     }
 
     private void FixedUpdate() {

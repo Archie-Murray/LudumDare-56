@@ -37,9 +37,14 @@ public class TowerMenu : MonoBehaviour {
         Destroy(tower.gameObject);
     }
 
-    public void Place(Tower tower) {
-        Globals.instance.money -= tower.Cost;
+    public bool Place(Tower tower) {
+        Globals.instance.ChangeMoney(-tower.Cost);
         CheckCosts();
+        if (Globals.instance.money >= tower.Cost) {
+            StartPlacingTower(uiItems.First(item => item.towerBase.GetType() == tower.GetType()));
+            return true;
+        }
+        return false;
     }
 
     public void Show() {
@@ -47,7 +52,7 @@ public class TowerMenu : MonoBehaviour {
         menuGroup.FadeCanvas(1f, false, this);
     }
 
-    private void CheckCosts() {
+    public void CheckCosts() {
         foreach (MenuItem menuItem in uiItems) {
             menuItem.buy.interactable = Globals.instance.money >= menuItem.towerBase.Cost;
         }

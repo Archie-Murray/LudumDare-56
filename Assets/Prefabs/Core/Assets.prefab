@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2942042896264170501
 MonoBehaviour:
@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDeathParticles: {fileID: 9204688068932753589, guid: 3878a1601010131459b2e1366f5fb3ef, type: 3}
   towerDeathParticles: {fileID: 5812507897485167319, guid: e89805b26d98488469043263e6c07dbd, type: 3}
+  towerPlaceParticles: {fileID: 3545653235958177738, guid: e3a0535f75243d34faea57c88dc7703e, type: 3}
+  towerHitParticles: {fileID: 8151135370805180392, guid: e50e59e98a7eb584a995d30f68832322, type: 3}
+  enemyHitParticles: {fileID: 8508858121120016383, guid: 935e14afe241ef84bac6194c8245d7aa, type: 3}
