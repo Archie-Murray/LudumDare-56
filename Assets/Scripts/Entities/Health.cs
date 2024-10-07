@@ -71,6 +71,10 @@ namespace Entity {
             invulnerabilityReset = StartCoroutine(InvulnerabilityReset());
         }
 
+        public void SetInvulnerable(bool invulnerable) {
+            this.invulnerable = invulnerable;
+        }
+
         private IEnumerator InvulnerabilityReset() {
             while (invulnerabilityTimer >= 0f) {
                 invulnerabilityTimer -= Time.fixedDeltaTime;

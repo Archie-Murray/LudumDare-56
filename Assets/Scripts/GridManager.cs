@@ -1,5 +1,7 @@
 using System;
 
+using Entity;
+
 using ProjectileComponents;
 
 using UnityEngine;
@@ -18,7 +20,9 @@ public class GridManager : Singleton<GridManager> {
     [SerializeField] private Vector2Int size;
     [SerializeField] private Vector3Int checkPos;
     [SerializeField] private SFXEmitter emitter;
+    [SerializeField] private UIMouseDetector[] uiObjects;
     const string TILE_NONE = "PathNone";
+    private RaycastHit2D hit;
 
     public void Start() {
         towers = new Tower[size.y, size.x];
@@ -28,7 +32,7 @@ public class GridManager : Singleton<GridManager> {
                 validPoints[y, x] = (tileMap.GetSprite(new Vector3Int(x, y, 0)).OrNull()?.name ?? string.Empty) == TILE_NONE;
             }
         }
-
+        uiObjects = FindObjectsOfType<UIMouseDetector>();
         towerMenu = FindFirstObjectByType<TowerMenu>();
         placementIndicator = Instantiate(indicatorPrefab, -Vector3.one, Quaternion.identity).GetComponent<SpriteRenderer>();
         placementIndicator.gameObject.SetActive(false);
@@ -38,6 +42,7 @@ public class GridManager : Singleton<GridManager> {
 
     public void InitializePlacement(Tower tower) {
         heldTower = tower;
+        heldTower.enabled = false;
         heldTower.gameObject.layer = 0;
         tower.transform.GetChild(0).gameObject.SetActive(false);
         SpriteRenderer towerRenderer = heldTower.GetComponentInChildren<SpriteRenderer>();
@@ -45,7 +50,6 @@ public class GridManager : Singleton<GridManager> {
         fade.a = 0.5f;
         towerRenderer.color = fade;
         placementIndicator.gameObject.SetActive(true);
-        heldTower.enabled = false;
     }
 
     private void Update() {
@@ -58,6 +62,9 @@ public class GridManager : Singleton<GridManager> {
             bool validPos = validPoints[Mathf.Clamp(gridPos.y, 0, size.y - 1), Mathf.Clamp(gridPos.x, 0, size.x - 1)];
             placementIndicator.color = validPos ? Color.green : Color.red;
             if (Input.GetMouseButton(0) && validPos) {
+                if (MouseTouchingUI()) {
+                    return;
+                }
                 emitter.Play(SoundEffectType.TowerPlace);
                 towers[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = heldTower;
                 validPoints[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = false;
@@ -70,6 +77,7 @@ public class GridManager : Singleton<GridManager> {
                     .GetOrAddComponent<AutoDestroy>().Duration = 1f;
                 heldTower.gameObject.layer = LayerMask.NameToLayer("Tower");
                 heldTower.transform.GetChild(0).gameObject.SetActive(true);
+                heldTower.GetComponent<Health>().Heal(10000);
                 heldTower.enabled = true;
                 if (!towerMenu.Place(heldTower)) {
                     heldTower = null;
@@ -80,6 +88,15 @@ public class GridManager : Singleton<GridManager> {
                 heldTower = null;
             }
         }
+    }
+
+    private bool MouseTouchingUI() {
+        foreach (UIMouseDetector mouseDetector in uiObjects) {
+            if (mouseDetector.IsHovered()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void RemoveTower(Tower towerBase) {

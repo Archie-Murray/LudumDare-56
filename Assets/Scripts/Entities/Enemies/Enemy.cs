@@ -70,12 +70,9 @@ public abstract class Enemy : MonoBehaviour {
 
     public abstract void Shoot(Collider2D position);
 
-    private void OnTriggerEnter2D(Collider2D colide)
-    {
-        if(1 << colide.gameObject.layer == End.value) 
-        {
-            if(colide.TryGetComponent(out Health health))
-                {
+    private void OnTriggerEnter2D(Collider2D colide) {
+        if (1 << colide.gameObject.layer == End.value) {
+            if (colide.TryGetComponent(out Health health)) {
                 health.Damage(damage);
                 Destroy(gameObject);
             }

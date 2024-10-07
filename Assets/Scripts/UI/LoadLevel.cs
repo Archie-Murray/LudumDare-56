@@ -34,10 +34,9 @@ public class LoadLevel : MonoBehaviour {
 
     private IEnumerator ExitGame() {
         yield return Yielders.WaitForSeconds(0.1f);
-        if (Application.isPlaying) {
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.ExitPlaymode();
-            yield break;
-        }
+#endif
         Application.Quit();
     }
 }
