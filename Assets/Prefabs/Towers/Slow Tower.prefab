@@ -175,7 +175,7 @@ MonoBehaviour:
   damage: 0
   range: 3
   health: {fileID: 6176923173580302205}
-  projectilePrefab: {fileID: 2959750059900283671, guid: 198ca0307f0480640b2140ee357e4f01, type: 3}
+  projectilePrefab: {fileID: 3489844493992520389, guid: d103daf80df1cb14987ac06a1b8f0268, type: 3}
   attackTimer:
     _initialTime: 0
     _time: 0

@@ -5167,6 +5167,8 @@ GameObject:
   - component: {fileID: 156370147}
   - component: {fileID: 156370146}
   - component: {fileID: 156370145}
+  - component: {fileID: 156370150}
+  - component: {fileID: 156370149}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -5208,6 +5210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelToLoad: Level 1
+  cursor: {fileID: 0}
 --- !u!114 &156370146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5230,7 +5233,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.062781096, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -5266,7 +5269,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 156370145}
         m_TargetAssemblyTypeName: LoadLevel, Assembly-CSharp
-        m_MethodName: click
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5314,6 +5317,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156370143}
   m_CullTransparentMesh: 1
+--- !u!114 &156370149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156370143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - Clip: {fileID: 8300000, guid: b8edbef82e3b4394da5c0edda945cd25, type: 3}
+    Type: 5
+--- !u!114 &156370150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156370143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e075fd16b31fd6a4184e31d4d0ae091e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 0}
+  sfx: 5
+  button: {fileID: 0}
 --- !u!1 &160043459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6048,7 +6081,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 32, y: 0}
+  m_SizeDelta: {x: 448, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &734853883
 CanvasRenderer:
@@ -6862,6 +6895,8 @@ GameObject:
   - component: {fileID: 1550887563}
   - component: {fileID: 1550887562}
   - component: {fileID: 1550887565}
+  - component: {fileID: 1550887567}
+  - component: {fileID: 1550887566}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -6912,7 +6947,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0, b: 0, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.062781096, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -6948,7 +6983,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1550887565}
         m_TargetAssemblyTypeName: LoadLevel, Assembly-CSharp
-        m_MethodName: click
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7009,6 +7044,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelToLoad: Level 1
+  cursor: {fileID: 2800000, guid: 1139eb8cfc1db0d4582c52d0eb1f642f, type: 3}
+--- !u!114 &1550887566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550887560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects:
+  - Clip: {fileID: 8300000, guid: b8edbef82e3b4394da5c0edda945cd25, type: 3}
+    Type: 5
+--- !u!114 &1550887567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550887560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e075fd16b31fd6a4184e31d4d0ae091e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 0}
+  sfx: 5
+  button: {fileID: 0}
 --- !u!1 &1554979045
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,7 +7203,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 32, y: 0}
+  m_SizeDelta: {x: 448, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618028327
 MonoBehaviour:
@@ -7324,7 +7390,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 32, y: 0}
+  m_SizeDelta: {x: 448, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1830256462
 MonoBehaviour:

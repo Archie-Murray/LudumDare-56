@@ -143,6 +143,7 @@ MonoBehaviour:
   rotationSpeed: 360
   speedModifier: 1
   modifierDuration: 0
+  spriteRenderer: {fileID: 0}
 --- !u!95 &-6447346902553337871
 Animator:
   serializedVersion: 5

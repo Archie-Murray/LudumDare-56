@@ -13,9 +13,9 @@ public class SlowTower : Tower {
 
     public override void Shoot(Collider2D[] enemies) {
         animator.Play(attackID);
-        GameObject slow = Instantiate(projectilePrefab, enemies[0].transform.position, Quaternion.identity);
+        GameObject slow = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         slow.GetOrAddComponent<AutoDestroy>().Duration = aoeDuration;
-        slow.GetOrAddComponent<EntityAoESlow>().Init(speedModifier, slowDuration, aoeRadius);
+        slow.GetOrAddComponent<SlowTowerProjectile>().Init(3, speedModifier, slowDuration, aoeDuration, aoeRadius, enemies[0].transform.position, enemy);
         attackTimer.Reset(attackTime);
         attackTimer.Start();
     }

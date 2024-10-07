@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour {
                 counter = Mathf.Min(Locations.Length - 1, counter + 1);
             }
         } else if (canMove) {
-            transform.position = Vector3.MoveTowards(transform.position, Locations[counter].position, speed * Time.fixedDeltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, Locations[counter].position, speed * speedModifier * Time.fixedDeltaTime);
             spriteRenderer.transform.rotation = Quaternion.RotateTowards(
                 spriteRenderer.transform.rotation, 
                 Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, Locations[counter].position - transform.position), Vector3.forward),
