@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 15
+  maxHealth: 6
 --- !u!58 &8340325738754985429
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 15
-  damage: 2
+  damage: 2.5
   range: 2
   health: {fileID: 6176923173580302205}
   projectilePrefab: {fileID: 3105783444695474603, guid: 6f37a26dbee27364dbdabfd96346233f, type: 3}
   attackTimer:
     _initialTime: 0
     _time: 0
-  attackTime: 1
+  attackTime: 0.5
   enemy:
     serializedVersion: 2
     m_Bits: 64

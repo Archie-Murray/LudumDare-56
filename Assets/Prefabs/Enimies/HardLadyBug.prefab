@@ -163,7 +163,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2959750059900283671, guid: a9a07486e824cde45ab979c331dcc588, type: 3}
   canShoot: 1
   animator: {fileID: 0}
-  moneyGained: 30
+  moneyGained: 15
   emitter: {fileID: 0}
 --- !u!114 &5645422787035728649
 MonoBehaviour:
