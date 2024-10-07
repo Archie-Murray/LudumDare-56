@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 15
+  maxHealth: 20
 --- !u!58 &5522894509304567681
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,8 +202,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effects:
-  - Clip: {fileID: 8300000, guid: 5160ab2065e2f0b47932ca64ab80c731, type: 3}
-    Type: 4
-  - Clip: {fileID: 8300000, guid: 8d00c05f2e229184b88fa040bda56712, type: 3}
-    Type: 3
+  _effects: []

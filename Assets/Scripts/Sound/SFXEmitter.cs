@@ -6,7 +6,7 @@ using UnityEngine;
 
 using Utilities;
 
-public enum SoundEffectType { None, Shoot, Hit, Death, TowerPlace }
+public enum SoundEffectType { None, Shoot, Hit, Death, TowerPlace,UIClick }
 
 public class SFXEmitter : MonoBehaviour {
     [SerializeField] private Dictionary<SoundEffectType, AudioSource> _sources;

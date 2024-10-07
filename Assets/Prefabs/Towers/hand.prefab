@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 805961130739391098}
   - component: {fileID: 9159621729145496334}
   - component: {fileID: 3576134377473904286}
+  - component: {fileID: 8636483906411923458}
   m_Layer: 3
   m_Name: hand
   m_TagString: Untagged
@@ -148,6 +149,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canShoot: 1
+  animator: {fileID: 0}
+  emitter: {fileID: 0}
+  AnimName: Hand Throw
 --- !u!61 &3576134377473904286
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -193,3 +197,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &8636483906411923458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682335313302913050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e55479402013f488c12d8cf1ea9c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effects: []
