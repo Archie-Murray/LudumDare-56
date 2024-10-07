@@ -6,6 +6,7 @@ using Entity;
 using Utilities;
 using System.Linq;
 using ProjectileComponents;
+using System;
 
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Collider2D))]
@@ -22,6 +23,8 @@ public abstract class Tower : MonoBehaviour {
     [SerializeField] protected bool canShoot = true;
     [SerializeField] protected Animator animator;
     [SerializeField] protected SFXEmitter emitter;
+    private bool debug = true;
+
     public int Cost => cost;
 
     public abstract void Shoot(Collider2D[] enemies);
@@ -30,7 +33,7 @@ public abstract class Tower : MonoBehaviour {
         attackTimer = new CountDownTimer(0f);
         attackTimer.Start();
         emitter = GetComponent<SFXEmitter>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         health.onDeath += () => {
             canShoot = false;
             GridManager.instance.RemoveTower(this);
@@ -56,11 +59,28 @@ public abstract class Tower : MonoBehaviour {
     }
     
     protected virtual Collider2D[] GetTargets() {
-        Collider2D closest = Physics2D.OverlapCircleAll(transform.position, range, enemy).FirstOrDefault();
-        if (!closest) {
+        Collider2D[] closest = Physics2D.OverlapCircleAll(transform.position, range, enemy);
+        if (closest.Length == 0) {
             return new Collider2D[] {};
         } else {
-            return new Collider2D[] { closest };
+            return closest;
         }
+    }
+
+    protected Collider2D GetClosest(Collider2D[] enemies) {
+        Array.Sort(enemies, CompareDistance);
+        return enemies[0];
+    }
+
+    private int CompareDistance(Collider2D enemy1, Collider2D enemy2) {
+        float dist1 = Vector2.Distance(enemy1.transform.position, transform.position);
+        float dist2 = Vector2.Distance(enemy2.transform.position, transform.position);
+        if (dist1 > dist2) {
+            return 1;
+        } 
+        if (dist1 < dist2) {
+            return -1;
+        }
+        return 0;
     }
 }

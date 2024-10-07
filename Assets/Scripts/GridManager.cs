@@ -39,7 +39,8 @@ public class GridManager : Singleton<GridManager> {
     public void InitializePlacement(Tower tower) {
         heldTower = tower;
         heldTower.gameObject.layer = 0;
-        SpriteRenderer towerRenderer = heldTower.GetComponent<SpriteRenderer>();
+        tower.transform.GetChild(0).gameObject.SetActive(false);
+        SpriteRenderer towerRenderer = heldTower.GetComponentInChildren<SpriteRenderer>();
         Color fade = towerRenderer.color;
         fade.a = 0.5f;
         towerRenderer.color = fade;
@@ -60,7 +61,7 @@ public class GridManager : Singleton<GridManager> {
                 emitter.Play(SoundEffectType.TowerPlace);
                 towers[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = heldTower;
                 validPoints[(int)heldTower.transform.position.y, (int)heldTower.transform.position.x] = false;
-                SpriteRenderer towerRenderer = heldTower.GetComponent<SpriteRenderer>();
+                SpriteRenderer towerRenderer = heldTower.GetComponentInChildren<SpriteRenderer>();
                 Color fade = towerRenderer.color;
                 fade.a = 1f;
                 towerRenderer.color = fade;
@@ -68,6 +69,7 @@ public class GridManager : Singleton<GridManager> {
                 Instantiate(Assets.instance.towerPlaceParticles, heldTower.transform.position, Quaternion.identity)
                     .GetOrAddComponent<AutoDestroy>().Duration = 1f;
                 heldTower.gameObject.layer = LayerMask.NameToLayer("Tower");
+                heldTower.transform.GetChild(0).gameObject.SetActive(true);
                 heldTower.enabled = true;
                 if (!towerMenu.Place(heldTower)) {
                     heldTower = null;

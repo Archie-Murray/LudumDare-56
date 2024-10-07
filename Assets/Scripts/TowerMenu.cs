@@ -83,7 +83,7 @@ public class TowerMenu : MonoBehaviour {
         public MenuItem(GameObject uiPrefab, GameObject towerPrefab, int index) {
             buy = uiPrefab.GetComponentInChildren<Button>();
             icon = uiPrefab.GetComponentsInChildren<Image>().First(image => image.gameObject.Has<Tags.UI.MenuImage>());
-            icon.sprite = towerPrefab.GetComponent<SpriteRenderer>().sprite;
+            icon.sprite = towerPrefab.GetComponentInChildren<SpriteRenderer>().sprite;
             towerBase = towerPrefab.GetComponent<Tower>();
             this.towerPrefab = towerPrefab;
             this.index = index;

@@ -10,7 +10,9 @@ public class BasicTower : Tower {
 
         Debug.Log("Shoot");
         animator.Play(AnimName);
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (Vector2)(enemies[0].transform.position - transform.position).normalized), Vector3.forward));
+        Quaternion rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, (Vector2)(GetClosest(enemies).transform.position - transform.position).normalized), Vector3.forward);
+        animator.transform.rotation = rotation;
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, rotation);
         projectile.GetOrAddComponent<AutoDestroy>().Duration = 2;
         projectile.GetOrAddComponent<ProjectileMover>().Speed = projectileSpeed;
         projectile.GetOrAddComponent<EntityDamager>().Init(DamageFilter.Enemy, damage);

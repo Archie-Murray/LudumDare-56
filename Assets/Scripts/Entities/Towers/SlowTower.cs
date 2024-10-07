@@ -15,7 +15,7 @@ public class SlowTower : Tower {
         animator.Play(attackID);
         GameObject slow = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         slow.GetOrAddComponent<AutoDestroy>().Duration = aoeDuration;
-        slow.GetOrAddComponent<SlowTowerProjectile>().Init(3, speedModifier, slowDuration, aoeDuration, aoeRadius, enemies[0].transform.position, enemy);
+        slow.GetOrAddComponent<SlowTowerProjectile>().Init(3, speedModifier, slowDuration, aoeDuration, aoeRadius, GetClosest(enemies).transform.position, enemy);
         attackTimer.Reset(attackTime);
         attackTimer.Start();
     }
