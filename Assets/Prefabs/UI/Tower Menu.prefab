@@ -244,7 +244,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5226266659463320515}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -262,6 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - {fileID: 659759222216098130, guid: ccca0944dc18d3b47b2b2f87aef508d9, type: 3}
+  - {fileID: 2953533851249819783, guid: 6ed4a9b4a9967c54f925275099d12373, type: 3}
+  - {fileID: 659759222216098130, guid: fa360ccb1359bdb4e80f452e141d4989, type: 3}
   menuGroup: {fileID: 0}
   towerUIPrefab: {fileID: 4814975100553185611, guid: d70c08b4a407501408e64be2a1654888, type: 3}
   uiItems: []
@@ -278,12 +280,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 5
+    m_Left: 20
     m_Right: 5
-    m_Top: 60
-    m_Bottom: 5
-  m_ChildAlignment: 4
-  m_Spacing: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 3
+  m_Spacing: 30
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
