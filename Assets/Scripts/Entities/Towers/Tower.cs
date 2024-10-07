@@ -10,7 +10,6 @@ using ProjectileComponents;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SFXEmitter))]
-[RequireComponent(typeof(SpriteRenderer))]
 public abstract class Tower : MonoBehaviour {
     [SerializeField] protected int cost;
     [SerializeField] protected float damage;

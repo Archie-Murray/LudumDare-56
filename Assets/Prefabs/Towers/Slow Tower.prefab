@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 20
   damage: 0
-  range: 3
+  range: 2
   health: {fileID: 6176923173580302205}
   projectilePrefab: {fileID: 3489844493992520389, guid: d103daf80df1cb14987ac06a1b8f0268, type: 3}
   attackTimer:
